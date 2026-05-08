@@ -3,25 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Coming Soon</title>
-    <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            text-align: center; 
-            padding: 15% 5%; 
-            background-color: #f8f9fa; 
-            color: #343a40; 
-        }
-        h1 { font-size: 2.5rem; margin-bottom: 0.5em; }
-        p { font-size: 1.2rem; color: #6c757d; max-width: 600px; margin: 0 auto 1.5em auto; line-height: 1.6; }
-        a { color: #0366d6; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
-    </style>
+    <title>Muhammad Fazil Maulana | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Portfolio Under Construction</h1>
-    <p>Hello! I am a professional focused on Data Engineering, Machine Learning, and AI solutions. I'm currently migrating my projects to this new space.</p>
-    <p>In the meantime, feel free to review my repositories or connect with me directly.</p>
-    <a href="https://linkedin.com/in/YOUR_LINKEDIN_URL_HERE">Connect on LinkedIn</a>
+
+    <div id="cursor"></div>
+
+    <nav>
+        <div class="logo utility-text hover-target"><a href="#hero">MFM.</a></div>
+        <ul class="nav-links utility-text">
+            <li><a href="#hero" class="hover-target">HOME</a></li>
+            <li><a href="#about" class="hover-target">ABOUT</a></li>
+            <li><a href="#work" class="hover-target">PROJECTS</a></li>
+            <li><a href="#work" class="hover-target">RESEARCH</a></li>
+            <li><a href="#skills-hobbies" class="hover-target">BEYOND</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="red-dot-accent gs-reveal"></div>
+        
+        <div class="hero-title-container">
+            <h1 class="hero-title gs-reveal">
+                <span style="display: block;">Muhammad</span>
+                <span class="hero-middle-row">
+                    <span class="hero-middle-name">Fazil</span>
+                    <span class="hero-role utility-text">Data Engineering & Science<br>AI & ML Researcher</span>
+                </span>
+                <span style="display: block;">Maulana</span>
+            </h1>
+        </div>
+
+        <div class="circle-crop-img gs-reveal"></div>
+
+        <div class="hero-bottom utility-text">
+            <div id="local-time" class="gs-reveal">BANDUNG --:--:--</div>
+            <!-- <div class="gs-reveal">(01/04)</div> -->
+        </div>
+    </section>
+
+    <section id="about">
+        <img src="media/images/Lambang UGM-putih.png" alt="Universitas Gadjah Mada logo" class="about-ugm-logo gs-fade-up">
+        <div class="red-dot-accent" style="position: static; margin-bottom: 20px;"></div>
+        <div class="utility-text section-label gs-fade-up">WHAT I DO</div>
+        
+        <h2 class="about-statement serif gs-fade-up">
+            Fresh Computer Science graduate from Universitas Gadjah Mada.<br>I leverage AI & Machine Learning to architect impactful, scalable data-driven solutions.
+        </h2>
+
+        <div class="about-actions">
+            <a href="#" class="circle-btn utility-text hover-target gs-fade-up">DOWNLOAD CV</a>
+            <a href="https://www.linkedin.com/in/muhammad-fazil-maulana/" target="_blank" rel="noopener noreferrer" class="circle-btn utility-text hover-target gs-fade-up">LINKEDIN</a>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="work-header">
+            <div class="utility-text">SELECTED WORKS</div>
+            <a href="#" class="utility-text pill-btn hover-target">VIEW ALL</a>
+        </div>
+
+        <div class="list-container">
+            <a href="#" class="list-item hover-target gs-fade-up">
+                <div class="item-number utility-text">(01)</div>
+                <div class="item-title serif">
+                    Financial<br>Synchronization
+                </div>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="Data Concept">
+                <div class="item-meta utility-text">
+                    Python, PyTorch<br>Apache Spark<br>2026
+                </div>
+            </a>
+
+            <a href="#" class="list-item hover-target gs-fade-up">
+                <div class="item-number utility-text">(02)</div>
+                <div class="item-title serif">
+                    Gantari Mengwi<br>Initiative
+                </div>
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="Community Concept">
+                <div class="item-meta utility-text">
+                    React.js, SQL<br>Community Project<br>2025
+                </div>
+            </a>
+
+            <a href="#" class="list-item hover-target gs-fade-up">
+                <div class="item-number utility-text">(03)</div>
+                <div class="item-title serif">
+                    Early Stunting<br>Detection AI
+                </div>
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="Research Concept">
+                <div class="item-meta utility-text">
+                    Scopus-Indexed<br>Ensemble Learning<br>2024
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="skills-hobbies">
+        <div class="utility-text section-label" style="text-align: center; margin-bottom: 20px;">DETAILS</div>
+        
+        <div class="grid-layout">
+            <div class="grid-column gs-fade-up">
+                <h3 class="serif">Technical Arsenal</h3>
+                
+                <div class="detail-row utility-text hover-target">
+                    <span>AI & Machine Learning (90/100)</span>
+                    <span>PyTorch, TensorFlow</span>
+                </div>
+                <div class="detail-row utility-text hover-target">
+                    <span>Data Science (80/100)</span>
+                    <span>Apache Spark, Milvus</span>
+                </div>
+                <div class="detail-row utility-text hover-target">
+                    <span>Data Engineering (70/100)</span>
+                    <span>Python, SQL</span>
+                </div>
+                <div class="detail-row utility-text hover-target">
+                    <span>Formatting & Design</span>
+                    <span>LaTeX, Figma</span>
+                </div>
+            </div>
+
+            <div class="grid-column gs-fade-up">
+                <h3 class="serif">Beyond The Code</h3>
+                
+                <div class="detail-row utility-text hover-target">
+                    <span>Tennis</span>
+                    <span>Focus & Discipline</span>
+                </div>
+                <div class="detail-row utility-text hover-target">
+                    <span>Photography</span>
+                    <span>Visual Creativity</span>
+                </div>
+                <div class="detail-row utility-text hover-target">
+                    <span>Competitive Gaming</span>
+                    <span>Strategic Planning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="utility-text">© 2026 MUHAMMAD FAZIL MAULANA</div>
+        <div class="utility-text">
+            <a href="https://linkedin.com/in/muhammadfazilmaulana" target="_blank" class="hover-target" style="margin-right: 20px;">LINKEDIN</a>
+            <a href="#" class="hover-target">EMAIL</a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

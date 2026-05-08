@@ -1,0 +1,476 @@
+@font-face {
+    font-family: 'NVIDIA Sans';
+    src: local('NVIDIA Sans'),
+         url('media/fonts/NVIDIASans-Regular.woff2') format('woff2'),
+         url('media/fonts/NVIDIASans-Regular.woff') format('woff'),
+         url('media/fonts/NVIDIASans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kaizor';
+    src: url('media/fonts/Kaizor.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --bg-light: #F4F4F2;
+    --bg-dark: #111111;
+    --text-dark: #111111;
+    --text-light: #F4F4F2;
+    --accent-red: #D14836;
+    --border-light: rgba(17, 17, 17, 0.2);
+    --border-dark: rgba(244, 244, 242, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Hide default cursor for custom red dot */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'NVIDIA Sans', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- CUSTOM CURSOR --- */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate3d(0, 0, 0);
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, mix-blend-mode 0.3s ease;
+    margin-left: -8px;
+    margin-top: -8px;
+    mix-blend-mode: normal;
+}
+
+#cursor.hovered {
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    background-color: var(--accent-red);
+    mix-blend-mode: normal;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, .serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+}
+
+.utility-text {
+    font-family: 'NVIDIA Sans', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: var(--text-light);
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-family: 'Kaizor', 'Cormorant Garamond', serif;
+}
+
+.nav-links {
+    list-style: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    font-size: 0.82rem;
+}
+
+.nav-links li a {
+    transition: opacity 0.3s ease;
+}
+
+.nav-links li a:hover {
+    opacity: 0.5;
+    color: var(--accent-red);
+}
+
+/* --- 1. HERO SECTION (Light) --- */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 5vw;
+}
+
+.hero-title-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.hero-title {
+    font-size: clamp(4.2rem, 10.5vw, 13rem);
+    line-height: 0.78;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    width: 100%;
+    font-family: 'Kaizor', 'Cormorant Garamond', serif;
+}
+
+.hero-middle-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2vw;
+}
+
+.hero-middle-name {
+    display: block;
+    margin-left: 0;
+    flex-shrink: 0;
+    font-size: 0.9em;
+}
+
+.hero-role {
+    margin-top: 0;
+    font-size: clamp(1.8rem, 2.8vw, 3rem);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    white-space: normal;
+    flex-shrink: 0;
+    text-align: left;
+}
+
+.hero-tagline {
+    margin-top: 0.6em;
+    max-width: 360px;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    text-align: left;
+    text-transform: none;
+}
+
+.red-dot-accent {
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    width: 24px;
+    height: 24px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 40px;
+    left: 5vw;
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    align-items: flex-end;
+}
+
+.circle-crop-img {
+    position: absolute;
+    bottom: -10vh;
+    right: 5vw;
+    width: 22vw;
+    height: 30vh;
+    background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 50vw;
+    border-top-right-radius: 50vw;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+/* --- 2. ABOUT SECTION (Dark) --- */
+#about {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 150px 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.about-ugm-logo {
+    position: absolute;
+    left: 50%;
+    top: 95%;
+    transform: translate(-50%, -50%);
+    width: clamp(240px, 24vw, 420px);
+    height: auto;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.section-label {
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
+.about-statement {
+    font-size: clamp(1.5rem, 3.8vw, 3rem);
+    max-width: 1200px;
+    line-height: 1.1;
+    margin-bottom: 80px;
+    font-family: 'NVIDIA Sans', sans-serif;
+}
+
+.circle-btn {
+    height: 58px;
+    padding: 0 44px;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border-radius: 999px; /* elongated oval */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    transition: transform 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.circle-btn:hover {
+    transform: scale(1.1);
+}
+
+.circle-btn::after {
+    content: '';
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 18px;
+    height: 2px;
+    background-color: var(--accent-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.circle-btn:hover::after,
+.circle-btn:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.about-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+/* --- 3. PROJECTS & RESEARCH (Light/Lines) --- */
+#work {
+    padding: 150px 0;
+    background-color: var(--bg-light);
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5vw 40px;
+}
+
+.work-header .utility-text {
+    font-size: 0.65rem;
+}
+
+.pill-btn {
+    border: 1px solid var(--text-dark);
+    padding: 8px 24px;
+    border-radius: 30px;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.pill-btn:hover {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.list-container {
+    border-top: 1px solid var(--border-light);
+}
+
+.list-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 60px 5vw;
+    border-bottom: 1px solid var(--border-light);
+    position: relative;
+    transition: background-color 0.4s ease;
+}
+
+.list-item:hover {
+    background-color: rgba(0,0,0,0.03);
+}
+
+.item-number {
+    width: 10%;
+    padding-top: 20px;
+}
+
+.item-title {
+    width: 90%;
+    font-size: clamp(2rem, 5vw, 5.5rem);
+    line-height: 0.9;
+    text-transform: none;
+    font-family: 'NVIDIA Sans', sans-serif;
+}
+
+.item-meta {
+    position: absolute;
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    text-align: right;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.list-item:hover .item-meta {
+    opacity: 1;
+}
+
+/* Hover Image for List Items */
+.hover-img {
+    position: absolute;
+    right: 15vw;
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.list-item:hover .hover-img {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/* --- 4. SKILLS & BEYOND (Dark) --- */
+#skills-hobbies {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 150px 5vw;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin-top: 60px;
+}
+
+.grid-column h3 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-dark);
+    padding-bottom: 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(244, 244, 242, 0.1);
+}
+
+.detail-row:hover {
+    color: var(--accent-red);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 40px 5vw;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(244, 244, 242, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-layout { grid-template-columns: 1fr; gap: 60px; }
+    .hero-middle-row {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero-role,
+    .hero-tagline {
+        margin-top: 0;
+        text-align: center;
+        white-space: normal;
+    }
+    .red-dot-accent { display: none; }
+    .about-ugm-logo {
+        position: static;
+        transform: none;
+        width: 150px;
+        margin-bottom: 18px;
+        opacity: 0.5;
+    }
+    .about-actions { flex-direction: column; gap: 12px; }
+    .item-meta { display: none; }
+    .hover-img { display: none; }
+}
