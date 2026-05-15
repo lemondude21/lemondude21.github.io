@@ -22,7 +22,7 @@
     --bg-dark: #111111;
     --text-dark: #111111;
     --text-light: #F4F4F2;
-    --accent-red: #D14836;
+    --accent-red: #FE4249;
     --border-light: rgba(17, 17, 17, 0.2);
     --border-dark: rgba(244, 244, 242, 0.2);
 }
@@ -31,7 +31,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none; /* Hide default cursor for custom red dot */
 }
 
 html {
@@ -51,24 +50,24 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     background-color: var(--accent-red);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
     transform: translate3d(0, 0, 0);
     transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, mix-blend-mode 0.3s ease;
-    margin-left: -8px;
-    margin-top: -8px;
+    margin-left: -11px;
+    margin-top: -11px;
     mix-blend-mode: normal;
 }
 
 #cursor.hovered {
-    width: 10px;
-    height: 10px;
-    margin-left: -5px;
-    margin-top: -5px;
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    margin-top: -8px;
     background-color: var(--accent-red);
     mix-blend-mode: normal;
 }
@@ -233,6 +232,7 @@ nav {
     background-color: var(--bg-dark);
     color: var(--text-light);
     padding: 150px 5vw;
+    border-top: 1px solid rgba(244, 244, 242, 0.12);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -252,8 +252,25 @@ nav {
 }
 
 .section-label {
-    margin-bottom: 60px;
-    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(0.85rem, 1.15vw, 0.95rem);
+    letter-spacing: 0.14em;
+    margin: 0 0 60px;
+    padding-bottom: 28px;
+    position: relative;
+}
+
+.section-label::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: min(120px, 20vw);
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.25;
 }
 
 .about-statement {
@@ -312,16 +329,12 @@ nav {
 #work {
     padding: 150px 0;
     background-color: var(--bg-light);
+    border-top: 1px solid var(--border-light);
 }
 
-.work-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5vw 40px;
-}
-
-.work-header .utility-text {
-    font-size: 0.65rem;
+#work .section-label {
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .pill-btn {
@@ -340,6 +353,16 @@ nav {
 
 .list-container {
     border-top: 1px solid var(--border-light);
+}
+
+button.list-item {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .list-item {
@@ -403,11 +426,118 @@ nav {
     transform: translateY(-50%) scale(1);
 }
 
+/* --- Project detail modal --- */
+body.modal-open {
+    overflow: hidden;
+}
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 8000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 5vw;
+}
+
+.project-modal[hidden] {
+    display: none;
+}
+
+.project-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.project-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 560px;
+    max-height: min(90vh, 720px);
+    overflow-y: auto;
+    padding: 48px 40px 40px;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 24px 80px rgba(17, 17, 17, 0.18);
+}
+
+.project-modal__close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.project-modal__close:hover,
+.project-modal__close:focus-visible {
+    opacity: 1;
+    color: var(--accent-red);
+}
+
+.project-modal__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    margin: 0 72px 20px 0;
+    text-transform: none;
+}
+
+.project-modal__description {
+    font-family: 'NVIDIA Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    margin: 0 0 28px;
+    color: rgba(17, 17, 17, 0.85);
+}
+
+.project-modal__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.project-modal__link {
+    border: 1px solid var(--text-dark);
+    padding: 10px 22px;
+    border-radius: 30px;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-modal__link:hover,
+.project-modal__link:focus-visible {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    border-color: var(--text-dark);
+}
+
+.project-modal__link::after {
+    display: none;
+}
+
 /* --- 4. SKILLS & BEYOND (Dark) --- */
 #skills-hobbies {
     background-color: var(--bg-dark);
     color: var(--text-light);
     padding: 150px 5vw;
+    border-top: 1px solid rgba(244, 244, 242, 0.12);
 }
 
 .grid-layout {
@@ -441,8 +571,15 @@ footer {
     color: var(--text-light);
     padding: 40px 5vw;
     display: flex;
-    justify-content: space-between;
-    border-top: 1px solid rgba(244, 244, 242, 0.1);
+    justify-content: center;
+    border-top: 1px solid rgba(244, 244, 242, 0.12);
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
 }
 
 /* Responsive */

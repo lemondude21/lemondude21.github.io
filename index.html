@@ -47,7 +47,6 @@
 
     <section id="about">
         <img src="media/images/Lambang UGM-putih.png" alt="Universitas Gadjah Mada logo" class="about-ugm-logo gs-fade-up">
-        <div class="red-dot-accent" style="position: static; margin-bottom: 20px;"></div>
         <div class="utility-text section-label gs-fade-up">WHAT I DO</div>
         
         <h2 class="about-statement serif gs-fade-up">
@@ -55,55 +54,74 @@
         </h2>
 
         <div class="about-actions">
-            <a href="#" class="circle-btn utility-text hover-target gs-fade-up">DOWNLOAD CV</a>
+            <a href="https://drive.google.com/file/d/1JT8hF3xLQHe19vWEU_ERmAbatQl0NUx_/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="circle-btn utility-text hover-target gs-fade-up">DOWNLOAD CV</a>
             <a href="https://www.linkedin.com/in/muhammad-fazil-maulana/" target="_blank" rel="noopener noreferrer" class="circle-btn utility-text hover-target gs-fade-up">LINKEDIN</a>
+            <a href="mailto:fazilmaulana21@gmail.com" class="circle-btn utility-text hover-target gs-fade-up">EMAIL</a>
         </div>
     </section>
 
     <section id="work">
-        <div class="work-header">
-            <div class="utility-text">SELECTED WORKS</div>
-            <a href="#" class="utility-text pill-btn hover-target">VIEW ALL</a>
-        </div>
+        <div class="utility-text section-label">FEATURED PROJECTS</div>
 
         <div class="list-container">
-            <a href="#" class="list-item hover-target gs-fade-up">
+            <button type="button" class="list-item hover-target gs-fade-up" data-project-id="pertamina-intern" aria-haspopup="dialog">
                 <div class="item-number utility-text">(01)</div>
                 <div class="item-title serif">
-                    Financial<br>Synchronization
+                    Pertamina Hulu Rokan<br>Internship Project
                 </div>
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="Data Concept">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="Pertamina Hulu Rokan internship">
                 <div class="item-meta utility-text">
-                    Python, PyTorch<br>Apache Spark<br>2026
+                    Industry internship<br>Presentation · Video · GitHub
                 </div>
-            </a>
+            </button>
 
-            <a href="#" class="list-item hover-target gs-fade-up">
+            <button type="button" class="list-item hover-target gs-fade-up" data-project-id="ugm-community-service" aria-haspopup="dialog">
                 <div class="item-number utility-text">(02)</div>
                 <div class="item-title serif">
-                    Gantari Mengwi<br>Initiative
+                    UGM Community<br>Service
                 </div>
-                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="Community Concept">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="UGM community service">
                 <div class="item-meta utility-text">
-                    React.js, SQL<br>Community Project<br>2025
+                    Universitas Gadjah Mada<br>Community engagement<br>Photos
                 </div>
-            </a>
+            </button>
 
-            <a href="#" class="list-item hover-target gs-fade-up">
+            <button type="button" class="list-item hover-target gs-fade-up" data-project-id="ieee-publications" aria-haspopup="dialog">
                 <div class="item-number utility-text">(03)</div>
                 <div class="item-title serif">
-                    Early Stunting<br>Detection AI
+                    IEEE International<br>Conference Publications
                 </div>
-                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="Research Concept">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="IEEE conference publications">
                 <div class="item-meta utility-text">
-                    Scopus-Indexed<br>Ensemble Learning<br>2024
+                    2× IEEE conferences<br>Publications · Photos
                 </div>
-            </a>
+            </button>
+
+            <button type="button" class="list-item hover-target gs-fade-up" data-project-id="national-science-finals" aria-haspopup="dialog">
+                <div class="item-number utility-text">(04)</div>
+                <div class="item-title serif">
+                    National Science<br>Competition Finalist
+                </div>
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" class="hover-img" alt="National science competition">
+                <div class="item-meta utility-text">
+                    National finalist<br>Paper · Photos · Certificate
+                </div>
+            </button>
         </div>
     </section>
 
+    <div id="project-modal" class="project-modal" hidden aria-hidden="true">
+        <div class="project-modal__backdrop" data-modal-close tabindex="-1"></div>
+        <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+            <button type="button" class="project-modal__close utility-text hover-target" data-modal-close aria-label="Close project details">Close</button>
+            <h2 id="project-modal-title" class="project-modal__title serif"></h2>
+            <p class="project-modal__description"></p>
+            <div class="project-modal__links"></div>
+        </div>
+    </div>
+
     <section id="skills-hobbies">
-        <div class="utility-text section-label" style="text-align: center; margin-bottom: 20px;">DETAILS</div>
+        <div class="utility-text section-label">DETAILS</div>
         
         <div class="grid-layout">
             <div class="grid-column gs-fade-up">
@@ -147,10 +165,9 @@
     </section>
 
     <footer>
-        <div class="utility-text">© 2026 MUHAMMAD FAZIL MAULANA</div>
-        <div class="utility-text">
-            <a href="https://linkedin.com/in/muhammadfazilmaulana" target="_blank" class="hover-target" style="margin-right: 20px;">LINKEDIN</a>
-            <a href="#" class="hover-target">EMAIL</a>
+        <div class="utility-text footer-links">
+            <a href="https://www.linkedin.com/in/muhammad-fazil-maulana/" target="_blank" rel="noopener noreferrer" class="hover-target">LINKEDIN</a>
+            <a href="mailto:fazilmaulana21@gmail.com" class="hover-target">EMAIL</a>
         </div>
     </footer>
 
