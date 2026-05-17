@@ -42,19 +42,29 @@ document.addEventListener('mouseenter', () => {
     cursor.style.opacity = 1;
 });
 
-// --- 2. Live Local Time (Bandung) ---
+// --- 2. Live Local Time (Bandung & Doha) ---
 function updateTime() {
-    const timeDisplay = document.getElementById('local-time');
+    const bandungDisplay = document.getElementById('local-time');
+    const dohaDisplay = document.getElementById('doha-time');
+    
     const options = {
-        timeZone: 'Asia/Jakarta',
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
         hour12: false
     };
-    const formatter = new Intl.DateTimeFormat('en-US', options);
-    const timeString = formatter.format(new Date());
-    timeDisplay.textContent = `BANDUNG ${timeString}`;
+    
+    const now = new Date();
+    
+    if (bandungDisplay) {
+        const bandungFormatter = new Intl.DateTimeFormat('en-US', { ...options, timeZone: 'Asia/Jakarta' });
+        bandungDisplay.textContent = `BANDUNG ${bandungFormatter.format(now)}`;
+    }
+    
+    if (dohaDisplay) {
+        const dohaFormatter = new Intl.DateTimeFormat('en-US', { ...options, timeZone: 'Asia/Qatar' });
+        dohaDisplay.textContent = `DOHA ${dohaFormatter.format(now)}`;
+    }
 }
 setInterval(updateTime, 1000);
 updateTime();
@@ -65,7 +75,11 @@ const projects = [
         id: 'pertamina-intern',
         title: 'Pertamina Hulu Rokan Internship Project',
         description:
-            'Industry internship project at Pertamina Hulu Rokan. Deliverables include technical implementation, documentation, and stakeholder presentation of outcomes.',
+            'During the IT Business Solutions internship at PERTAMINA Hulu Rokan, a Multimodal AI assistant was engineered to optimize operations within Commercial Regional 1. The project involved evaluating and deploying fine-tuned Large Language Models (LLMs) locally, alongside developing a visual-question-answering (VQA) feature to process scanned corporate documents efficiently. Built utilizing Python, Microsoft Azure, Milvus, and Hugging Face, the final deployment featured a robust document embedding system that enabled seamless and highly accurate retrieval of information directly from the corporate database.',
+        thumbnail: 'media/Photos/Screenshot 2026-05-17 100445.png',
+        thumbnailAlt: 'Pertamina Hulu Rokan internship project',
+        thumbnailFallback:
+            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
         links: {
             presentation: '#', // Replace with your PPT / slides URL
             video: '#', // Replace with your demo or recap video URL
@@ -74,9 +88,13 @@ const projects = [
     },
     {
         id: 'ugm-community-service',
-        title: 'UGM Community Service',
+        title: 'UGM Community Service (Gantari Mengwi)',
         description:
-            'Universitas Gadjah Mada community service program — field work, collaboration with local partners, and documented impact through on-site activities.',
+            'As part of the KKN-PPM UGM 2025 program, technical contributions were made to the "Gantari Mengwi" initiative in Bali. A functional digital mailing system was architected and deployed using PHP and SQL to digitize and streamline administrative processes for the local village government. Additionally, the initiative involved cross-disciplinary collaboration to teach foundational computer science and basic financial literacy concepts to students across four local primary schools.',
+        thumbnail: 'media/Photos/WhatsApp Image 2025-08-02 at 11.13.10_3f72197c (1).jpg',
+        thumbnailAlt: 'UGM Community Service — Gantari Mengwi',
+        thumbnailFallback:
+            'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop',
         links: {
             photos: '#', // Replace with album or gallery URL (Google Drive, etc.)
         },
@@ -85,7 +103,11 @@ const projects = [
         id: 'ieee-publications',
         title: 'IEEE International Conference Publications',
         description:
-            'Two peer-reviewed papers presented at IEEE international conferences — research contributions in AI/ML and data-driven systems with full publication records.',
+            'Research applying machine learning to the medical field has culminated in two Scopus-indexed publications presented at international IEEE conferences. The first paper, presented at the IEEE Conference of Artificial Intelligence 2024 in Singapore, introduced a hybrid ML model utilizing an integrated SMOTE algorithm and ensemble learning to enhance early stunting detection, achieving a 10% increase in predictive accuracy. The second publication, presented at the IEEE Conference of Future Machine Learning and Data Science 2024 in Sydney, explored a few-shot learning approach for classifying Tuberculosis from Chest X-Ray images.',
+        thumbnail: 'media/Photos/Screenshot 2026-05-17 100910.png',
+        thumbnailAlt: 'IEEE international conference publications',
+        thumbnailFallback:
+            'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop',
         links: {
             publications: '#', // Replace with IEEE Xplore, Scholar, or publication list URL
             photos: '#', // Replace with conference photos album URL
@@ -93,9 +115,13 @@ const projects = [
     },
     {
         id: 'national-science-finals',
-        title: 'National Science Competition Finalist',
+        title: 'National Science Competition Finalist (GEMASTIK 2024)',
         description:
-            'National-level science competition finalist — research submission, judging rounds, and recognition as a top-performing team or individual.',
+            'Competing against over 2,900 teams from top universities across Indonesia, finalist status was achieved at the GEMASTIK 2024 National STEM Competition. The competition entry focused on improving the early detection classification of Tuberculosis using Chest X-Ray images. By utilizing a Genetic Algorithm to optimize hyperparameter tuning, the classification model\'s performance was successfully improved by 4%, demonstrating advanced capabilities in applying optimization algorithms to complex medical imaging challenges.',
+        thumbnail: 'media/Photos/Gemastik-Unnes.JPG',
+        thumbnailAlt: 'GEMASTIK 2024 National Science Competition',
+        thumbnailFallback:
+            'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop',
         links: {
             paper: '#', // Replace with paper or preprint URL
             photos: '#', // Replace with competition photos album URL
@@ -117,9 +143,33 @@ const LINK_BUTTONS = [
 
 const projectModal = document.getElementById('project-modal');
 const projectModalTitle = projectModal.querySelector('#project-modal-title');
+const projectModalThumbnail = document.getElementById('project-modal-thumbnail');
+const projectModalMedia = projectModal.querySelector('.project-modal__media');
 const projectModalDescription = projectModal.querySelector('.project-modal__description');
 const projectModalLinks = projectModal.querySelector('.project-modal__links');
 let lastFocusedBeforeModal = null;
+
+function setProjectModalThumbnail(project) {
+    const src = project.thumbnail || project.thumbnailFallback;
+    if (!src) {
+        projectModalMedia.hidden = true;
+        projectModalThumbnail.removeAttribute('src');
+        projectModalThumbnail.alt = '';
+        return;
+    }
+
+    projectModalMedia.hidden = false;
+    projectModalThumbnail.alt = project.thumbnailAlt || project.title;
+    projectModalThumbnail.onerror = () => {
+        if (project.thumbnailFallback && projectModalThumbnail.src !== project.thumbnailFallback) {
+            projectModalThumbnail.src = project.thumbnailFallback;
+            projectModalThumbnail.onerror = null;
+            return;
+        }
+        projectModalMedia.hidden = true;
+    };
+    projectModalThumbnail.src = src;
+}
 
 function getProjectById(id) {
     return projects.find((p) => p.id === id);
@@ -132,6 +182,7 @@ function openProjectModal(projectId) {
     lastFocusedBeforeModal = document.activeElement;
     projectModalTitle.textContent = project.title;
     projectModalDescription.textContent = project.description;
+    setProjectModalThumbnail(project);
 
     projectModalLinks.innerHTML = '';
     const links = project.links || {};
@@ -161,6 +212,9 @@ function closeProjectModal() {
     projectModal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
     projectModalLinks.innerHTML = '';
+    projectModalThumbnail.removeAttribute('src');
+    projectModalThumbnail.onerror = null;
+    projectModalMedia.hidden = false;
 
     if (lastFocusedBeforeModal && typeof lastFocusedBeforeModal.focus === 'function') {
         lastFocusedBeforeModal.focus();
@@ -168,7 +222,7 @@ function closeProjectModal() {
     lastFocusedBeforeModal = null;
 }
 
-document.querySelectorAll('.list-item[data-project-id]').forEach((card) => {
+document.querySelectorAll('.work-card[data-project-id]').forEach((card) => {
     card.addEventListener('click', () => {
         openProjectModal(card.getAttribute('data-project-id'));
     });
@@ -189,28 +243,7 @@ document.addEventListener('keydown', (e) => {
 // --- 3. GSAP Scroll Animations ---
 gsap.registerPlugin(ScrollTrigger);
 
-// Logo + nav links fade out while scrolling down; fade back in near the top
-const navFadeEls = gsap.utils.toArray("nav .logo, nav .nav-links");
-gsap.fromTo(
-    navFadeEls,
-    { opacity: 1 },
-    {
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-            trigger: document.body,
-            start: "top top",
-            end: "+=180",
-            scrub: 0.35,
-            onUpdate(self) {
-                const hideInteractions = self.progress > 0.9;
-                navFadeEls.forEach((el) => {
-                    el.style.pointerEvents = hideInteractions ? "none" : "";
-                });
-            },
-        },
-    }
-);
+// Navbar persists (no fade out on scroll)
 
 // Hero initial load animation
 gsap.from(".gs-reveal", {
@@ -234,5 +267,24 @@ gsap.utils.toArray('.gs-fade-up').forEach(elem => {
         opacity: 0,
         duration: 1,
         ease: "power2.out"
+    });
+});
+
+// --- 4. Accordion Logic ---
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const isExpanded = header.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other accordions (optional: remove if you want multiple open)
+        accordionHeaders.forEach(h => {
+            h.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle the clicked one
+        if (!isExpanded) {
+            header.setAttribute('aria-expanded', 'true');
+        }
     });
 });
