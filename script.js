@@ -81,9 +81,9 @@ const projects = [
         thumbnailFallback:
             'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
         links: {
-            presentation: '#', // Replace with your PPT / slides URL
-            video: '#', // Replace with your demo or recap video URL
-            github: '#', // Replace with your repository URL
+            presentation: 'https://drive.google.com/file/d/1OHtAzRiaeQwfSwhIruY-pGgNhnvk8f8N/view?usp=sharing',
+            video: 'https://drive.google.com/file/d/1yV3e7VpFyqcL3wgBZML86Mw6Hnwojv5L/view?usp=sharing',
+            github: 'https://github.com/lemondude21/VQA-URBuddy',
         },
     },
     {
@@ -96,7 +96,7 @@ const projects = [
         thumbnailFallback:
             'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop',
         links: {
-            photos: '#', // Replace with album or gallery URL (Google Drive, etc.)
+            github: 'https://github.com/lemondude21/SI-Persuratan',
         },
     },
     {
@@ -109,8 +109,7 @@ const projects = [
         thumbnailFallback:
             'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=800&auto=format&fit=crop',
         links: {
-            publications: '#', // Replace with IEEE Xplore, Scholar, or publication list URL
-            photos: '#', // Replace with conference photos album URL
+            publications: 'https://arxiv.org/abs/2409.11644',
         },
     },
     {
@@ -123,9 +122,8 @@ const projects = [
         thumbnailFallback:
             'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop',
         links: {
-            paper: '#', // Replace with paper or preprint URL
-            photos: '#', // Replace with competition photos album URL
-            certificate: '#', // Replace with certificate scan or PDF URL
+            paper: 'https://drive.google.com/file/d/158WPetWePaS9mkUaNbOAmpMbkOhM_Wsf/view?usp=sharing',
+            certificate: 'https://drive.google.com/file/d/1ld86ClaHqGo2_AmqxV_gjSorjcpBRHlE/view?usp=sharing',
         },
     },
 ];
