@@ -1,46 +1,8 @@
 // --- 1. Custom Cursor Logic ---
-const cursor = document.getElementById('cursor');
-
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let cursorX = mouseX;
-let cursorY = mouseY;
-
-// Track real mouse position
-window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-// Smooth trailing effect so dot feels dragged by cursor
-function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.18;
-    cursorY += (mouseY - cursorY) * 0.18;
-    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
-    requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// Add hover effect to interactive elements (reused when modal injects new links)
+// Removed per user request. Dummy function left to prevent errors when calling this elsewhere.
 function attachCursorHover(nodes) {
-    nodes.forEach((target) => {
-        target.addEventListener('mouseenter', () => {
-            cursor.classList.add('hovered');
-        });
-        target.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hovered');
-        });
-    });
+    // no-op
 }
-attachCursorHover(document.querySelectorAll('.hover-target, a, button'));
-
-// Ensure cursor resets if mouse leaves window
-document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = 0;
-});
-document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = 1;
-});
 
 // --- 2. Live Local Time (Bandung & Doha) ---
 function updateTime() {
@@ -71,6 +33,17 @@ updateTime();
 
 // --- 2b. Project data & modal ---
 const projects = [
+    {
+        id: 'qafco-intern',
+        title: 'QAFCO Digitalization Office Internship',
+        description:
+            'During the Digitalization Office internship at Qatar Fertiliser Company (QAFCO), spearheaded the research and implementation of an enterprise Microsoft Co-Pilot agent designed to streamline corporate document management and retrieval. A primary focus involved leveraging advanced Knowledge Graph architectures (GraphRAG) to significantly enhance agent intelligence and reasoning capabilities across complex, multi-domain topics within a repository exceeding 2,000 corporate documents.',
+        thumbnail: 'media/Photos/Screenshot 2026-06-28 103923.png',
+        thumbnailAlt: 'QAFCO Digitalization Office Internship',
+        thumbnailFallback:
+            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+        links: {},
+    },
     {
         id: 'pertamina-intern',
         title: 'Pertamina Hulu Rokan Internship Project',
@@ -237,6 +210,23 @@ document.addEventListener('keydown', (e) => {
         closeProjectModal();
     }
 });
+
+// --- Carousel Navigation ---
+const workGrid = document.querySelector('.work-grid');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+if (workGrid && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+        const scrollAmount = window.innerWidth > 768 ? 640 : window.innerWidth * 0.85;
+        workGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const scrollAmount = window.innerWidth > 768 ? 640 : window.innerWidth * 0.85;
+        workGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+}
 
 // --- 3. GSAP Scroll Animations ---
 gsap.registerPlugin(ScrollTrigger);

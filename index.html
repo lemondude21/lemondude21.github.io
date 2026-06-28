@@ -14,7 +14,6 @@
 
 <body>
 
-    <div id="cursor"></div>
 
     <nav class="floating-nav">
         <ul class="nav-links utility-text">
@@ -31,7 +30,7 @@
             <h2 class="hero-tagline gs-reveal">
                 Data Science & Engineering <br>AI Research Enthusiast
             </h2>
-            
+
             <h1 class="hero-title gs-reveal">
                 <span style="display: block;">FAZIL</span>
                 <span style="display: block; position: relative;">MAULANA<span class="red-square-accent"></span></span>
@@ -60,12 +59,14 @@
 
         <div class="about-content gs-fade-up">
             <h2 class="about-statement">
-                <strong>A Fresh Computer Science Graduate  </strong> <span class="grey-text">who's eager to grow and learn from professional experience.</span>
+                <strong>A Fresh Computer Science Graduate </strong> <span class="grey-text">who's eager to grow and
+                    learn from professional experience.</span>
             </h2>
-            
+
             <div class="about-details">
                 <p class="about-description">
-                    My name is <strong>Muhammad Fazil Maulana</strong>, I was born in Bandung, Indonesia but spent most of my life growing up in Doha, Qatar. 
+                    My name is <strong>Muhammad Fazil Maulana</strong>, I was born in Bandung, Indonesia and am a
+                    graduate of Universitas Gadjah Mada.
                 </p>
                 <ul class="about-bullet-points">
                     <li><span class="red-triangle-small"></span> Data oriented problem solver</li>
@@ -83,73 +84,117 @@
             </h2>
             <div class="work-title-row">
                 <h1 class="work-title">Selected Works<span class="red-square-accent"></span></h1>
-                <span class="work-count utility-text">[ 04 ]</span>
             </div>
         </div>
 
-        <div class="work-grid">
-            <div class="work-card-wrapper">
-                <button type="button" class="work-card hover-target gs-fade-up" data-project-id="pertamina-intern" aria-haspopup="dialog" style="background-image: url('media/Photos/Screenshot 2026-05-17 100445.png');">
-                    <div class="work-card-overlay"></div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-inner-title">A multimodal AI assistant to optimize operations within Commercial Regional 1.</h3>
-                        <div class="work-card-tags utility-text">
-                            [ Multimodal RAG ] [ Local LLM Testing ] [ Azure & Milvus ]
-                        </div>
-                        <div class="work-card-button">
-                            <span class="arrow-icon">→</span> VIEW PROJECT
-                        </div>
-                    </div>
-                </button>
-                <h4 class="work-card-label">Pertamina Hulu Rokan</h4>
-            </div>
+        <div class="work-carousel-container gs-fade-up">
+            <button class="carousel-btn prev-btn hover-target" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+            <button class="carousel-btn next-btn hover-target" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
 
-            <div class="work-card-wrapper">
-                <button type="button" class="work-card hover-target gs-fade-up" data-project-id="ugm-community-service" aria-haspopup="dialog" style="background-image: url('media/Photos/WhatsApp Image 2025-08-02 at 11.13.10_3f72197c (1).jpg');">
-                    <div class="work-card-overlay"></div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-inner-title">A functional digital mailing system for the local government of Mengwi, Bali.</h3>
-                        <div class="work-card-tags utility-text">
-                            [ Web Development ] [ Community Outreach ]
+            <div class="work-grid">
+                <div class="work-card-wrapper">
+                    <button type="button" class="work-card hover-target" data-project-id="qafco-intern"
+                        aria-haspopup="dialog"
+                        style="background-image: url('media/Photos/WhatsApp Image 2026-06-04 at 10.44.32 AM (1).jpeg');">
+                        <div class="work-card-overlay"></div>
+                        <div class="work-card-content">
+                            <h3 class="work-card-inner-title">Developing an enterprise Microsoft Co-Pilot agent powered
+                                by GraphRAG for corporate document retrieval.</h3>
+                            <div class="work-card-tags utility-text">
+                                [ Co-Pilot Studio ] [ GraphRAG ] [ Neo4j ]
+                            </div>
+                            <div class="work-card-button">
+                                <span class="arrow-icon">→</span> VIEW PROJECT
+                            </div>
                         </div>
-                        <div class="work-card-button">
-                            <span class="arrow-icon">→</span> VIEW PROJECT
-                        </div>
-                    </div>
-                </button>
-                <h4 class="work-card-label">UGM Community Service</h4>
-            </div>
+                    </button>
+                    <h4 class="work-card-label">QAFCO Internship</h4>
+                </div>
 
-            <div class="work-card-wrapper">
-                <button type="button" class="work-card hover-target gs-fade-up" data-project-id="ieee-publications" aria-haspopup="dialog" style="background-image: url('media/Photos/Screenshot 2026-05-17 100910.png');">
-                    <div class="work-card-overlay"></div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-inner-title">Few-Shot Learning approach to enhance early Tuberculosis detection.</h3>
-                        <div class="work-card-tags utility-text">
-                            [ Cutting Edge Machine Learning ] [ Research ]
+                <div class="work-card-wrapper">
+                    <button type="button" class="work-card hover-target" data-project-id="pertamina-intern"
+                        aria-haspopup="dialog"
+                        style="background-image: url('media/Photos/Screenshot 2026-05-17 100445.png');">
+                        <div class="work-card-overlay"></div>
+                        <div class="work-card-content">
+                            <h3 class="work-card-inner-title">A multimodal AI assistant to optimize operations within
+                                Commercial Regional 1.</h3>
+                            <div class="work-card-tags utility-text">
+                                [ Multimodal RAG ] [ Local LLM Testing ] [ Azure & Milvus ]
+                            </div>
+                            <div class="work-card-button">
+                                <span class="arrow-icon">→</span> VIEW PROJECT
+                            </div>
                         </div>
-                        <div class="work-card-button">
-                            <span class="arrow-icon">→</span> VIEW PROJECT
-                        </div>
-                    </div>
-                </button>
-                <h4 class="work-card-label">IEEE Publications</h4>
-            </div>
+                    </button>
+                    <h4 class="work-card-label">Pertamina Hulu Rokan</h4>
+                </div>
 
-            <div class="work-card-wrapper">
-                <button type="button" class="work-card hover-target gs-fade-up" data-project-id="national-science-finals" aria-haspopup="dialog" style="background-image: url('media/Photos/Gemastik-Unnes.JPG');">
-                    <div class="work-card-overlay"></div>
-                    <div class="work-card-content">
-                        <h3 class="work-card-inner-title">Hybrid ML model for pre-emptive disease classification.</h3>
-                        <div class="work-card-tags utility-text">
-                            [ Optimization ] [ AI ] [ National Competition]
+                <div class="work-card-wrapper">
+                    <button type="button" class="work-card hover-target" data-project-id="ugm-community-service"
+                        aria-haspopup="dialog"
+                        style="background-image: url('media/Photos/WhatsApp Image 2025-08-02 at 11.13.10_3f72197c (1).jpg');">
+                        <div class="work-card-overlay"></div>
+                        <div class="work-card-content">
+                            <h3 class="work-card-inner-title">A functional digital mailing system for the local
+                                government of Mengwi, Bali.</h3>
+                            <div class="work-card-tags utility-text">
+                                [ Web Development ] [ Community Outreach ]
+                            </div>
+                            <div class="work-card-button">
+                                <span class="arrow-icon">→</span> VIEW PROJECT
+                            </div>
                         </div>
-                        <div class="work-card-button">
-                            <span class="arrow-icon">→</span> VIEW PROJECT
+                    </button>
+                    <h4 class="work-card-label">UGM Community Service</h4>
+                </div>
+
+                <div class="work-card-wrapper">
+                    <button type="button" class="work-card hover-target" data-project-id="ieee-publications"
+                        aria-haspopup="dialog"
+                        style="background-image: url('media/Photos/Screenshot 2026-05-17 100910.png');">
+                        <div class="work-card-overlay"></div>
+                        <div class="work-card-content">
+                            <h3 class="work-card-inner-title">Few-Shot Learning approach to enhance early Tuberculosis
+                                detection.</h3>
+                            <div class="work-card-tags utility-text">
+                                [ Cutting Edge Machine Learning ] [ Research ]
+                            </div>
+                            <div class="work-card-button">
+                                <span class="arrow-icon">→</span> VIEW PROJECT
+                            </div>
                         </div>
-                    </div>
-                </button>
-                <h4 class="work-card-label">GEMASTIK 2024</h4>
+                    </button>
+                    <h4 class="work-card-label">IEEE Publications</h4>
+                </div>
+
+                <div class="work-card-wrapper">
+                    <button type="button" class="work-card hover-target" data-project-id="national-science-finals"
+                        aria-haspopup="dialog" style="background-image: url('media/Photos/Gemastik-Unnes.JPG');">
+                        <div class="work-card-overlay"></div>
+                        <div class="work-card-content">
+                            <h3 class="work-card-inner-title">Hybrid ML model for pre-emptive disease classification.
+                            </h3>
+                            <div class="work-card-tags utility-text">
+                                [ Optimization ] [ AI ] [ National Competition]
+                            </div>
+                            <div class="work-card-button">
+                                <span class="arrow-icon">→</span> VIEW PROJECT
+                            </div>
+                        </div>
+                    </button>
+                    <h4 class="work-card-label">GEMASTIK 2024</h4>
+                </div>
             </div>
         </div>
     </section>
@@ -174,7 +219,6 @@
     <section id="details">
         <div class="details-header gs-fade-up">
             <h1 class="details-title">More About Me<span class="red-square-accent"></span></h1>
-            <span class="details-count utility-text">[ 03 ]</span>
         </div>
 
         <div class="accordion-container">
@@ -187,10 +231,12 @@
                 <div class="accordion-content">
                     <div class="accordion-inner">
                         <ul class="details-list">
-                            <li><span class="red-triangle-small"></span> DeepLearning.AI - Data Engineering Professional Certificate</li>
-                            <li><span class="red-triangle-small"></span> Google - Data Analytics Professional Certificate</li>
+                            <li><span class="red-triangle-small"></span> DeepLearning.AI - Data Engineering Professional
+                                Certificate</li>
+                            <li><span class="red-triangle-small"></span> Google - Data Analytics Professional
+                                Certificate</li>
                             <li><span class="red-triangle-small"></span> IELTS Academic - 8.5</li>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -204,11 +250,15 @@
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-inner">
-                        <p class="accordion-description"><strong>Empowering solutions with modern technical stacks.</strong></p>
+                        <p class="accordion-description"><strong>Empowering solutions with modern technical
+                                stacks.</strong></p>
                         <ul class="details-list">
-                            <li><span class="red-triangle-small"></span> <strong>AI & Machine Learning:</strong> PyTorch, TensorFlow, Scikit-Learn</li>
-                            <li><span class="red-triangle-small"></span> <strong>Data Science & DB:</strong> Apache Spark, Milvus, SQL</li>
-                            <li><span class="red-triangle-small"></span> <strong>Languages & Cloud:</strong> Python, Microsoft Azure</li>
+                            <li><span class="red-triangle-small"></span> <strong>AI & Machine Learning:</strong>
+                                PyTorch, TensorFlow, Scikit-Learn</li>
+                            <li><span class="red-triangle-small"></span> <strong>Data Science & DB:</strong> Apache
+                                Spark, Milvus, SQL</li>
+                            <li><span class="red-triangle-small"></span> <strong>Languages & Cloud:</strong> Python,
+                                Microsoft Azure</li>
                         </ul>
                     </div>
                 </div>
@@ -224,9 +274,12 @@
                     <div class="accordion-inner">
                         <p class="accordion-description"><strong>Exploring life through different lenses.</strong></p>
                         <ul class="details-list">
-                            <li><span class="red-triangle-small"></span> <strong>Tennis:</strong> Cultivating focus and discipline</li>
-                            <li><span class="red-triangle-small"></span> <strong>Photography:</strong> Exploring visual creativity</li>
-                            <li><span class="red-triangle-small"></span> <strong>Competitive Gaming:</strong> Honing strategic planning</li>
+                            <li><span class="red-triangle-small"></span> <strong>Tennis:</strong> Cultivating focus and
+                                discipline</li>
+                            <li><span class="red-triangle-small"></span> <strong>Photography:</strong> Exploring visual
+                                creativity</li>
+                            <li><span class="red-triangle-small"></span> <strong>Competitive Gaming:</strong> Honing
+                                strategic planning</li>
                         </ul>
                     </div>
                 </div>
@@ -236,13 +289,14 @@
 
     <footer>
         <div class="footer-content gs-fade-up">
-            <h2 class="footer-title">Let's build something.</h2>
+            <h2 class="footer-title">Reach out!</h2>
             <div class="footer-links utility-text">
-                <a href="https://www.linkedin.com/in/muhammad-fazil-maulana/" target="_blank" rel="noopener noreferrer" class="hover-target">LINKEDIN</a>
+                <a href="https://www.linkedin.com/in/muhammad-fazil-maulana/" target="_blank" rel="noopener noreferrer"
+                    class="hover-target">LINKEDIN</a>
                 <a href="mailto:fazilmaulana21@gmail.com" class="hover-target">EMAIL</a>
             </div>
             <div class="footer-bottom utility-text">
-                <span>© 2025 FAZIL MAULANA.</span>
+                <span>© 2025 KNICKS IN 5!</span>
                 <span>BASED IN BANDUNG.</span>
             </div>
         </div>
