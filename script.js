@@ -42,7 +42,9 @@ const projects = [
         thumbnailAlt: 'QAFCO Digitalization Office Internship',
         thumbnailFallback:
             'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
-        links: {},
+        links: {
+            github: 'https://github.com/lemondude21/mcp-graphrag-test',
+        },
     },
     {
         id: 'pertamina-intern',
